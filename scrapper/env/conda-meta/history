@@ -1,0 +1,90 @@
+==> 2023-07-26 08:22:10 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py create --prefix ./env requests selenium
+# conda version: 23.3.1
++defaults/noarch::charset-normalizer-2.0.4-pyhd3eb1b0_0
++defaults/noarch::pycparser-2.21-pyhd3eb1b0_0
++defaults/noarch::tzdata-2023c-h04d1e81_0
++defaults/win-64::brotlipy-0.7.0-py311h2bbff1b_1002
++defaults/win-64::bzip2-1.0.8-he774522_0
++defaults/win-64::ca-certificates-2023.05.30-haa95532_0
++defaults/win-64::certifi-2023.7.22-py311haa95532_0
++defaults/win-64::cffi-1.15.1-py311h2bbff1b_3
++defaults/win-64::cryptography-41.0.2-py311hac1b9e3_0
++defaults/win-64::idna-3.4-py311haa95532_0
++defaults/win-64::libffi-3.4.4-hd77b12b_0
++defaults/win-64::openssl-3.0.9-h2bbff1b_0
++defaults/win-64::pip-23.2.1-py311haa95532_0
++defaults/win-64::pyopenssl-23.2.0-py311haa95532_0
++defaults/win-64::pysocks-1.7.1-py311haa95532_0
++defaults/win-64::python-3.11.4-he1021f5_0
++defaults/win-64::requests-2.29.0-py311haa95532_0
++defaults/win-64::selenium-3.141.0-py311h2bbff1b_1000
++defaults/win-64::setuptools-68.0.0-py311haa95532_0
++defaults/win-64::sqlite-3.41.2-h2bbff1b_0
++defaults/win-64::tk-8.6.12-h2bbff1b_0
++defaults/win-64::urllib3-1.26.16-py311haa95532_0
++defaults/win-64::vc-14.2-h21ff451_1
++defaults/win-64::vs2015_runtime-14.27.29016-h5e58377_2
++defaults/win-64::wheel-0.38.4-py311haa95532_0
++defaults/win-64::win_inet_pton-1.1.0-py311haa95532_0
++defaults/win-64::xz-5.4.2-h8cc25b3_0
++defaults/win-64::zlib-1.2.13-h8cc25b3_0
+# update specs: ['selenium', 'requests']
+==> 2023-07-26 08:25:00 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install beautifulsoup4
+# conda version: 23.3.1
++defaults/win-64::beautifulsoup4-4.12.2-py311haa95532_0
++defaults/win-64::soupsieve-2.4-py311haa95532_0
+# update specs: ['beautifulsoup4']
+==> 2023-07-26 13:02:13 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install flask flask_cors
+# conda version: 23.3.1
++defaults/noarch::flask_cors-3.0.10-pyhd3eb1b0_0
++defaults/noarch::itsdangerous-2.0.1-pyhd3eb1b0_0
++defaults/noarch::six-1.16.0-pyhd3eb1b0_1
++defaults/win-64::click-8.0.4-py311haa95532_0
++defaults/win-64::colorama-0.4.6-py311haa95532_0
++defaults/win-64::flask-2.2.2-py311haa95532_0
++defaults/win-64::jinja2-3.1.2-py311haa95532_0
++defaults/win-64::markupsafe-2.1.1-py311h2bbff1b_0
++defaults/win-64::werkzeug-2.2.3-py311haa95532_0
+# update specs: ['flask_cors', 'flask']
+==> 2023-07-31 11:54:09 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install pytz
+# conda version: 23.3.1
++defaults/win-64::pytz-2022.7-py311haa95532_0
+# update specs: ['pytz']
+==> 2023-07-31 14:58:42 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install redis
+# conda version: 23.3.1
++defaults/noarch::redis-3.5.3-pyhd3eb1b0_0
+# update specs: ['redis']
+==> 2023-07-31 18:35:38 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install psutil
+# conda version: 23.3.1
++defaults/win-64::psutil-5.9.0-py311h2bbff1b_0
+# update specs: ['psutil']
+==> 2023-07-31 21:16:02 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install pympler
+# conda version: 23.3.1
++defaults/noarch::pympler-0.9-py_0
+# update specs: ['pympler']
+==> 2023-08-02 13:41:36 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install apscheduler
+# conda version: 23.3.1
++defaults/win-64::apscheduler-3.9.0-py311haa95532_0
++defaults/win-64::tzlocal-2.1-py311haa95532_1
+# update specs: ['apscheduler']
+==> 2023-08-02 13:42:30 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install watchdog
+# conda version: 23.3.1
++defaults/win-64::pyyaml-6.0-py311h2bbff1b_1
++defaults/win-64::watchdog-2.1.6-py311haa95532_0
++defaults/win-64::yaml-0.2.5-he774522_0
+# update specs: ['watchdog']
+==> 2023-08-08 15:09:15 <==
+# cmd: C:\miniconda3\Scripts\conda-script.py install beautifulsoup4
+# conda version: 23.3.1
+-defaults/win-64::openssl-3.0.9-h2bbff1b_0
++defaults/win-64::openssl-3.0.10-h2bbff1b_0
+# update specs: ['beautifulsoup4']
