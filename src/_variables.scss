@@ -1,0 +1,60 @@
+$blue-palette: (
+  50: #d8edff,   // Darkened the blue by reducing the blue component
+  100: #aad8ff,  // Darkened the blue by reducing the blue component
+  200: #78c2ff,  // Darkened the blue by reducing the blue component
+  300: #49acff,  // Darkened the blue by reducing the blue component
+  400: #23a1ff,  // Darkened the blue by reducing the blue component
+  500: #00b0e6,  // Slightly darker blue
+  600: #0088cc,  // Slightly darker blue
+  700: #0077b3,  // Slightly darker blue
+  800: #006699,  // Slightly darker blue
+  900: #005580,  // Slightly darker blue
+  A100: #ffffff,
+  A200: #f2faff,
+  A400: #e2ecf3,
+  A700: #3d4651,
+  contrast: (
+    light-gray: #f8fcfe,
+    black: #000000,
+    dark-green: #508d5a,
+    goldy: gold,
+    light-green: rgb(131, 205, 131),
+    ggreen: rgb(105, 167, 105),
+    yyellow: rgb(140, 140, 87),
+    rred: rgb(146, 98, 98),
+    conti-orange: rgb(255, 170, 0)
+  )
+);
+// Font family definition
+$font-family: 'Roboto', sans-serif;
+
+// Font sizes for headers
+$heading1-font-size: 1.8rem;
+$heading2-font-size: 1.6rem;
+$heading3-font-size: 1.4rem;
+$heading4-font-size: 1.2rem;
+$heading5-font-size: 1rem;
+$heading6-font-size: 0.8rem;
+
+// Font size for body text
+$body1-font-size: 1.25rem;
+$body2-font-size: 1rem;
+$body3-font-size: 0.9rem;
+$body4-font-size: 0.75rem;
+
+// Font weights
+$heading-font-weight-bold: 700;
+$heading-font-weight-normal: 500;
+$heading-font-weight-light: 400;
+$body-font-weight: normal;
+$body-font-weight-bold: 700;
+
+// Colors for headers
+$blue-headers-color: map-get($blue-palette, 700);
+$black-headers-color: #000000;
+$white-headers-color: #ffffff;
+
+// Colors for body text
+$blue-body-color: map-get($blue-palette, 800);
+$black-body-color: #000000;
+$white-body-color: #ffffff;

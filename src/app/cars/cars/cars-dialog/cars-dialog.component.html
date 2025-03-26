@@ -1,0 +1,35 @@
+<div class="dialog-title header3-white ">
+  <span *ngIf="data.type === 'Pricing'"><h4>Pricing Info</h4></span>
+  <span *ngIf="data.type === 'History'"><h4>Car History</h4></span>
+</div>
+<div  mat-dialog-content class="dialog-body mode-dialog" *ngIf="data.type === 'Pricing'">
+  <div class="additional-info" *ngIf="data.info['date_purchased']">
+    <span style="font-weight: bold;">Date Purchased: </span>{{data.info['date_purchased']}}
+  </div>
+  <div class="additional-info" *ngIf="data.info['Additional Info']">
+    <span style="font-weight: bold;">Info: </span>{{data.info['Additional Info']}}
+  </div>
+  <div class="dialog-buttons">
+    <button mat-raised-button cdkFocusInitial class="dialog-button" (click)="onNoClick()">OK</button>
+  </div>
+</div>
+<div  mat-dialog-content class="dialog-body mode-dialog" *ngIf="data.type === 'History'">
+  <div class="unlock-button">
+    <div class="unlock-wrapper mat-elevation-z3">
+      <div class="header4-blue">Powered by CarVertical</div>
+      <button mat-raised-button class="lock-button">
+        <div class="lock">
+          <div class="shackle">
+            <div class="shackle-hole"></div>
+          </div>
+          <div class="body">
+              <div class="keyhole"></div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="dialog-buttons">
+    <button mat-raised-button cdkFocusInitial class="dialog-button" (click)="onNoClick()">OK</button>
+  </div>
+</div>

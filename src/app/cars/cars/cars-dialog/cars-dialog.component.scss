@@ -1,0 +1,87 @@
+@import '../../../../variables';
+
+.additional-info{
+  padding: 1rem;
+}
+
+.unlock-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rem;
+  background-image: url('../../../../assets/history-placeholder.png');
+  background-size: cover;
+  .unlock-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    .lock-button{
+      background-color: map-get(map-get($blue-palette, contrast), ggreen);
+      height: 5.5rem;
+      padding-top: 0.5rem;
+      .lock {
+        width: 3rem;
+        height: 4rem;
+        position: relative;
+        cursor: pointer;
+        .shackle {
+          width: 70%;
+          height: 30%;
+          background-color: white;
+          position: absolute;
+          top: 0;
+          left: 15%;
+          border-radius: 50% 50% 0 0;
+          transition: transform 0.3s ease;
+          .shackle-hole {
+            background-color: map-get(map-get($blue-palette, contrast), ggreen);
+            width: 50%;
+            border-radius: 50% 50% 0 0;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+          }
+        }
+        .body {
+          width: 100%;
+          height: 70%;
+          background-color: white;
+          position: absolute;
+          bottom: 0;
+          border-radius: 10px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .keyhole {
+            width: 10px;
+            height: 10px;
+            background-color: map-get(map-get($blue-palette, contrast), ggreen);
+            border-radius: 50%;
+            position: relative;
+          }
+          .keyhole::before {
+              content: "";
+              width: 4px;
+              height: 4px;
+              background-color: map-get(map-get($blue-palette, contrast), ggreen);
+              position: absolute;
+              bottom: -4px;
+              left: 3px;
+          }
+        }
+      }
+      .lock:hover .shackle {
+        transform: translateY(-10px);
+      }
+    }
+
+  }
+}

@@ -1,0 +1,411 @@
+@import '../../../variables';
+
+.sidenav-container {
+  height: 92vh;
+  width: 100vw;
+  overflow: hidden;
+  .standard-select{
+    margin-bottom: 1rem;
+  }
+  .double-input-field {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    .standard-input {
+      width: 50%;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .sidenav {
+    width: 18vw;
+    min-width: 15rem;
+    transition: width 0.3s;
+    height: 100%!important;
+    overflow: hidden!important;
+  }
+  .sidenav.mat-drawer-over {
+    width: 6vw!important;
+    min-width: 3.5rem;
+    visibility: visible!important;
+    transform: none!important;
+    display: block!important;
+    transition: width 0.3s;
+  }
+  .sidenav.mat-drawer-over.mat-drawer-opened{
+    width: 18vw!important;
+    min-width: 15rem;
+    transition: width 0.3s;
+  }
+}
+::ng-deep .mat-drawer-inner-container {
+  display: flex!important;
+  flex-direction: column!important;
+  align-items: left!important;
+}
+::ng-deep .mat-content.mat-content-hide-toggle{
+  margin-right: 0!important;
+}
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 16px 12px!important;
+}
+
+.content{
+  height: 92vh;
+  .sidenav-content{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    .main-content {
+      width: 64vw!important;
+      padding: 1rem;
+      height: 92vh;
+      overflow-y: scroll;
+      .site-source-options{
+        height: 3rem;
+        margin-bottom: 1rem;
+        border-radius: 3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+        align-items: center;
+        .sources{
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          align-items: center;
+          .source {
+            position: relative;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            .image-container{
+              width: 3rem;
+              height: 3rem;
+              border-radius: 50%;
+              overflow: hidden;
+              img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+              }
+            }
+            .remove-button {
+              position: absolute;
+              top: -0.5rem; /* Adjust the position to align properly */
+              right: -0.5rem; /* Adjust the position to align properly */
+              width: 1.5rem;
+              height: 1.5rem;
+              border-radius: 50%;
+              background-color: #FFFFFF; /* White background */
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-weight: bold;
+              font-size: 0.85rem;
+              cursor: pointer;
+            }
+          }
+          .source.active{
+            border: 0.15rem solid #41b141; /* Green border */
+            .remove-button {
+              color: #b33333; /* Red color for the "X" */
+            }
+          }
+          .source.inactive{
+            border: 0.15rem solid #a0a0a0; /* Green border */
+            .remove-button {
+              color: #439648; /* Red color for the "X" */
+            }
+          }
+        }
+        .sorter{
+          max-width: 12rem;
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          align-items: center;
+          justify-content: center;
+          .embedded-select{
+            max-width: 9rem;
+          }
+          .sort-direction{
+            width: 2rem;
+            height: 2rem;
+            padding: 0!important;
+            border-radius: 50%;
+            min-width: 0!important;
+            .mat-icon{
+              margin-left: 0!important;
+              margin-right: 0!important;
+            }
+          }
+        }
+      }
+      .results-headers{
+        padding-bottom: 1rem;
+      }
+    }
+    .main-content .car-card:last-child{
+      margin-bottom: 2rem;
+    }
+    .right-sidenav {
+      width: 18vw!important;
+      height: 92vh;
+      overflow: hidden;
+    }
+    @media screen and (min-width: 900px) and (max-width: 1360px) {
+      .main-content {
+        width: 82vw!important;
+      }
+    }
+    @media screen and (max-width: 900px) {
+      .main-content {
+        width: 100vw!important;
+        margin-left: 8vw;
+      }
+    }
+  }
+}
+.sidenav-item-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin-right: 0!important;
+  gap: 0.4rem;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+.sidenav-item{
+  .mat-expansion-panel-header{
+    padding: 0!important;
+    .mat-expansion-panel-header-title{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: left;
+      margin-right: 0!important;
+      gap: 0.4rem;
+      padding-left: 1rem;
+    }
+
+  }
+  .sidenav-item-text{
+    transition: 0.4s ease-in;
+    span {
+      opacity: 0;
+    }
+    .animate-text {
+      /* Define the animation properties */
+      animation-name: fadeIn; /* Name of the animation */
+      animation-duration: 0.5s; /* Duration of the animation */
+      animation-timing-function: ease-in-out; /* Timing function of the animation */
+      animation-delay: 0.2s; /* Delay before the animation starts */
+      animation-fill-mode: forwards; /* Keeps the final style of the animation after it ends */
+    }
+
+    @keyframes fadeIn {
+      /* Define the animation keyframes */
+      0% {
+        opacity: 0; /* Start with opacity 0 */
+      }
+      100% {
+        opacity: 1; /* End with opacity 1 */
+      }
+    }
+  }
+}
+
+.car-card {
+  border-radius: 1rem;
+  width: 100%;
+  height: 13rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.75rem;
+  .link-car-photo{
+    width: 40%;
+    height: 100%;
+    .car-photo {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 1rem 0 0 1rem;
+      .photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .car-info {
+    padding: 1rem;
+    width: 100%;
+    .car-title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .car-value {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0.6rem;
+      .car-price {
+        display: flex;
+        flex-direction: row;
+        border-radius: 0.4rem;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        .price-icon {
+          padding: 0.2rem;
+          border-radius: 0.4rem 0 0 0.4rem;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          mat-icon {
+            transform: scale(0.7);
+          }
+        }
+        .price-value {
+          padding: 0.2rem 0.6rem 0 0.2rem;
+        }
+      }
+      .sale-button {
+        border-radius: 0.4rem;
+        padding: 0!important;
+        overflow: hidden;
+        height: 2rem;
+        .button-icon {
+          display: flex;
+          color: white;
+          gap: 0.2rem;
+          justify-content: center;
+          align-items: center;
+          height: 2rem;
+          mat-icon {
+            transform: scale(0.7);
+          }
+        }
+
+        .button-text {
+          width: 0;
+          height: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .price-button {
+        width: 6rem;
+        transition: width 0.5s ease;
+        cursor: default!important;
+        .additional-info {
+          background-color: white;
+          color: map-get(map-get($blue-palette, contrast), goldy);
+          padding: 0.3rem;
+          border-radius: 50%;
+          text-align: center;
+          margin-left: 0.5rem;
+          cursor: pointer!important;
+        }
+        .button-icon {
+          background-color: map-get(map-get($blue-palette, contrast), conti-orange);
+          transition: width 0.75s ease;
+          width: 6rem;
+        }
+        .button-text {
+          transition: width 0.75s ease;
+        }
+      }
+      .history-button {
+        width: 7.5rem;
+        .button-icon {
+          background-color: map-get($blue-palette, 200);
+          width: 7.5rem;
+        }
+      }
+      .price-button.isPriced{
+        width: 12rem;
+        .button-icon {
+          width: 2rem;
+          mat-icon {
+            transform: scale(0.7);
+          }
+        }
+        .button-text {
+          width: 10rem;
+        }
+        .sale-icon {
+          animation: none!important;
+        }
+      }
+      .price-button:hover {
+        .sale-icon {
+          animation: shake 0.2s ease infinite;
+        }
+      }
+      .shaking {
+        animation: shake 0.2s ease infinite;
+      }
+
+      @keyframes shake {
+        0% { transform: translateX(0) scale(0.7); }
+        25% { transform: translateX(-3px) rotate(10deg) scale(0.7); }
+        50% { transform: translateX(3px) rotate(-10deg) scale(0.7); }
+        75% { transform: translateX(-3px) rotate(10deg) scale(0.7); }
+        100% { transform: translateX(0) scale(0.7); }
+      }
+
+    }
+    .car-mileage-time{
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 0.2rem;
+    }
+    .car-tag {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem
+    }
+    .car-description {
+      margin-top: 0.6rem;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      .desc{
+        white-space: pre-line;
+        line-height: 1rem;
+        width: 80%;
+      }
+      .site-source{
+        width: 20%;
+        max-height: 4rem;
+        display: flex;
+        justify-content: end;
+        align-items: right;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

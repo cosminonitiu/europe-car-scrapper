@@ -1,0 +1,36 @@
+@import 'variables';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.light-gray-background {
+  background-color: map-get($blue-palette, A400);
+}
+
+.super-light-gray-background {
+  background-color: map-get(map-get($blue-palette, contrast), light-gray);
+}
+
+.blue-background-600 {
+  background-color: map-get($blue-palette, 600);;
+}
+
+.dark-green-background {
+  background-color: map-get(map-get($blue-palette, contrast), dark-green);
+}
+
+.gold-background {
+  background-color: map-get(map-get($blue-palette, contrast), goldy);
+}
+
+.greenish-background{
+  background-color: map-get(map-get($blue-palette, contrast), light-green);
+}
+
+.green-background{
+  background-color: map-get(map-get($blue-palette, contrast), ggreen);
+}
+.red-background{
+  background-color: map-get(map-get($blue-palette, contrast), rred);
+}
+.yellow-background{
+  background-color: map-get(map-get($blue-palette, contrast), yyellow);
+}

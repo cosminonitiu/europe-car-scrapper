@@ -1,1 +1,275 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+*{
+   font-family: 'Roboto', sans-serif;
+ }
+html {
+  font-size: calc(12px + 4 * ((100vw - 400px) / 400));
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 1200px) {
+      font-size: 20px;
+  }
+  line-height: 1.25;
+}
+
+ @import 'variables';
+ /* Define styles for headers */
+.header1-blue {
+  font-size: $heading1-font-size;
+  font-weight: $heading-font-weight-bold;
+  color: $blue-headers-color;
+}
+
+.header1-black {
+  font-size: $heading1-font-size;
+  font-weight: $heading-font-weight-bold;
+  color: $black-headers-color;
+}
+
+.header2-blue {
+  font-size: $heading2-font-size;
+  font-weight: $heading-font-weight-bold;
+  color: $blue-headers-color;
+}
+
+.header2-black {
+  font-size: $heading2-font-size;
+  font-weight: $heading-font-weight-bold;
+  color: $black-headers-color;
+}
+
+.header3-blue {
+  font-size: $heading3-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $blue-headers-color;
+}
+
+.header3-black {
+  font-size: $heading3-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $black-headers-color;
+}
+.header3-white {
+  font-size: $heading3-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $white-headers-color;
+}
+
+.header4-blue {
+  font-size: $heading4-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $blue-headers-color;
+}
+
+.header4-black {
+  font-size: $heading4-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $black-headers-color;
+}
+.header4-white {
+  font-size: $heading4-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $white-headers-color;
+}
+
+.header5-blue {
+  font-size: $heading5-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $blue-headers-color;
+}
+
+.header5-black {
+  font-size: $heading5-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $black-headers-color;
+}
+
+.header5-white {
+  font-size: $heading5-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $white-headers-color;
+}
+
+.header6-blue {
+  font-size: $heading6-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $blue-headers-color;
+}
+
+.header6-black {
+  font-size: $heading6-font-size;
+  font-weight: $heading-font-weight-normal;
+  color: $black-headers-color;
+}
+
+.header7-blue {
+  font-size: $heading6-font-size;
+  font-weight: $heading-font-weight-light;
+  color: $blue-headers-color;
+}
+
+.header7-black {
+  font-size: $heading6-font-size;
+  font-weight: $heading-font-weight-light;
+  color: $black-headers-color;
+}
+
+/* Define styles for body text */
+.body1-blue {
+  font-size: $body1-font-size;
+  font-weight: $body-font-weight;
+  color: $blue-body-color;
+}
+.body1-black {
+  font-size: $body1-font-size;
+  font-weight: $body-font-weight;
+  color: $black-body-color;
+}
+
+.body2-blue {
+  font-size: $body2-font-size;
+  font-weight: $body-font-weight;
+  color: $blue-body-color;
+}
+.body2-black {
+  font-size: $body2-font-size;
+  font-weight: $body-font-weight;
+  color: $black-body-color;
+}
+
+
+.body3-blue {
+  font-size: $body3-font-size;
+  font-weight: $body-font-weight;
+  color: $blue-body-color;
+}
+.body3-black {
+  font-size: $body3-font-size;
+  font-weight: $body-font-weight;
+  color: $black-body-color;
+}
+
+
+.body4-blue {
+  font-size: $body4-font-size;
+  font-weight: $body-font-weight;
+  color: $blue-body-color;
+}
+.body4-black {
+  font-size: $body4-font-size;
+  font-weight: $body-font-weight;
+  color: $black-body-color;
+}
+.body4-white {
+  font-size: $body4-font-size;
+  font-weight: $body-font-weight;
+  color: $white-body-color;
+}
+.body4-bold-white {
+  font-size: $body4-font-size;
+  font-weight: $body-font-weight-bold;
+  color: $white-body-color;
+}
+
+.standard-select, .standard-input, .embedded-select {
+  width: 100%!important;
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
+    top: 15px!important;
+    font-size: $body4-font-size!important;
+  }
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .mdc-floating-label.mat-mdc-floating-label.mdc-floating-label--float-above{
+    font-size: $body4-font-size!important;
+    font-weight: $body-font-weight!important;
+    color: $blue-body-color!important;
+  }
+  .mat-mdc-form-field-subscript-wrapper{
+    display: none!important;
+  }
+  .mat-mdc-form-field-infix{
+    min-height: 0!important;
+    .mat-mdc-select-value-text{
+      font-size: $body4-font-size!important;
+      font-weight: $body-font-weight!important;
+      color: $blue-body-color!important;
+    }
+  }
+}
+
+.embedded-select {
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading{
+    border-color: transparent!important;
+  }
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{
+    border-color: transparent!important;
+  }
+  .mat-mdc-text-field-wrapper{
+    background-color: white!important;
+    border-radius: 1.5rem;
+  }
+}
+
+.standard-select, .standard-input{
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading{
+    border-color: $blue-body-color!important;
+  }
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{
+    border-color: $blue-body-color!important;
+  }
+}
+
+// /***********************************
+// ***     Material Dialog Styles    ***
+// ***********************************/
+.dialog-title {
+  background-color: #FFA807;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-body {
+  display: flex!important;
+  flex-direction: column!important;
+  justify-content: center!important;
+  align-items: left!important;
+  .dialog-buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .dialog-button{
+      background-color: #FFA807!important;
+      color: white!important;
+      max-width: 7rem;
+    }
+  }
+}
+.dialog-box {
+  mat-dialog-container {
+    border-radius: 1rem!important;
+    overflow: hidden!important;
+    padding: 0!important;
+    z-index: 500!important;
+    width: 24rem;
+    height: fit-content;
+  }
+}
+
+
+.giant-dialog-box {
+  mat-dialog-container {
+    border-radius: 1rem!important;
+    padding: 0!important;
+    z-index: 500!important;
+    width: 70rem;
+    height: fit-content;
+    overflow: hidden!important;
+  }
+}

@@ -1,0 +1,375 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="!screenMobile" (backdropClick)="toggleSidenav('close')">
+  <mat-sidenav class="sidenav" #sidenav [opened]="!screen720 ? true : isSidenavOpen ? true : false" [mode]="!screen720 ?  'side' : 'over'">
+    <ng-container *ngFor="let item of sidenavItems">
+      <div (click)="toggleSidenav('open')" class="sidenav-item" *ngIf="!screen1360 || item.show=='left'">
+        <mat-accordion *ngIf="item.type === 'expand'">
+
+          <mat-expansion-panel *ngIf="item.text === 'Refine Search'" hideToggle #searchPanel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="header6-blue"><mat-icon fontIcon={{item.icon}}></mat-icon></div>
+                <div class="sidenav-item-text" *ngIf="!screen720 || isSidenavOpen"><span class="animate-text header6-blue">{{item.text}}</span></div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Brand</mat-label>
+              <mat-select [(value)]="selectedBrand" (selectionChange)="brandChange()">
+                <mat-option *ngFor="let brand of brandOptions" [value]="brand">
+                  {{brand}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Model</mat-label>
+              <mat-select [(value)]="selectedModel" (selectionChange)="filter()">
+                <mat-option *ngFor="let model of currentFilteredModels" [value]="model">
+                  {{model.name}} ({{model.total_count}})
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Year</mat-label>
+              <mat-select [(value)]="year" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of years" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="double-input-field">
+              <mat-form-field appearance="outline" class="standard-input">
+                <mat-label>Min. Price</mat-label>
+                <input matInput (input)="inputDebounceTime($event, 'price_low')">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="standard-input">
+                <mat-label>Max. Price</mat-label>
+                <input matInput (input)="inputDebounceTime($event, 'price_high')">
+              </mat-form-field>
+            </div>
+
+            <div class="double-input-field">
+              <mat-form-field appearance="outline" class="standard-input">
+                <mat-label>Min. Mileage</mat-label>
+                <input matInput (input)="inputDebounceTime($event, 'mileage_low')">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="standard-input">
+                <mat-label>Max. Mileage</mat-label>
+                <input matInput (input)="inputDebounceTime($event, 'mileage_high')">
+              </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Fuel Type</mat-label>
+              <mat-select [(value)]="fuel_type" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of fuel_types" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Transmission</mat-label>
+              <mat-select [(value)]="transmission" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of transmissions" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Sale Types</mat-label>
+              <mat-select [(value)]="sale_type" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of sale_types" [value]="y">
+                  {{y === 'true' ? 'Dealer' : 'Owner'}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Body Styles</mat-label>
+              <mat-select [(value)]="body_style" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of body_styles" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Color</mat-label>
+              <mat-select [(value)]="color" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of colors" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Number of doors</mat-label>
+              <mat-select [(value)]="doors" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of doorsOptions" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Engine Size</mat-label>
+              <mat-select [(value)]="engine_capacity" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of engine_capacities" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Power</mat-label>
+              <mat-select [(value)]="power" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of powers" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Steering wheel side</mat-label>
+              <mat-select [(value)]="volan_part" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of volan_parts" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Used/New</mat-label>
+              <mat-select [(value)]="used_or_not" (selectionChange)="filter()" multiple>
+                <mat-option *ngFor="let y of used_or_nots" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="standard-select">
+              <mat-label>Last # Days</mat-label>
+              <mat-select [(value)]="last_days" (selectionChange)="filter()">
+                <mat-option *ngFor="let y of last_days_options" [value]="y">
+                  {{y}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel *ngIf="item.text === 'Saved Searches'" hideToggle #savedSearchesPanel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="header6-blue"><mat-icon fontIcon={{item.icon}}></mat-icon></div>
+                <div class="sidenav-item-text" *ngIf="!screen720 || isSidenavOpen"><span class="animate-text header6-blue">{{item.text}}</span></div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            Saved Searches
+          </mat-expansion-panel>
+
+        </mat-accordion>
+
+        <div *ngIf="item.type === 'link'" class="sidenav-item-title">
+          <div class="header6-blue"><mat-icon fontIcon={{item.icon}}></mat-icon></div>
+          <div class="sidenav-item-text" *ngIf="!screen720 || isSidenavOpen"><span class="animate-text header6-blue">{{item.text}}</span></div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content mat-elevation-z1">
+    <div class="sidenav-content super-light-gray-background">
+
+      <div class="main-content" (scroll)="onScroll()">
+        <div class="site-source-options light-gray-background">
+          <div class="sources">
+            <ng-container *ngFor="let site of site_source_options">
+              <div class="source" [ngClass]="{ 'active':selected_site_sources.includes(site), 'inactive':!selected_site_sources.includes(site) }">
+                <div class="image-container">
+                  <img [src]="
+                  site === 'RO-OLX' ? '../../../assets/olx.png' :
+                  site === 'RO-AUTOVIT' ? '../../../assets/autovit.png' :
+                  site === 'DE-SCOUT24' ? '../../../assets/autoscout24.png':
+                  '../../../assets/placeholder.png'" />
+                </div>
+                <div class="remove-button" (click)="change_site_source(site)">
+                  <span>{{selected_site_sources.includes(site) ? 'x' : '+'}}</span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+          <div class="sorter">
+            <mat-form-field appearance="outline" class="embedded-select">
+              <mat-label>Sort by</mat-label>
+              <mat-select [(value)]="selectedSort" (selectionChange)="filter()">
+                <mat-option *ngFor="let sort of sortOptions" [value]="sort">
+                  {{sort[1]}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-raised-button (click)="toggleSortDirection()" class="sort-direction">
+              <mat-icon [fontIcon]="sortDirection === 'up' ? 'arrow_upward' : 'arrow_downward'"></mat-icon>
+            </button>
+          </div>
+
+        </div>
+
+        <div class="results-headers header3-black">
+          Showing {{total_number_of_cars}} results
+        </div>
+        <ng-container *ngFor="let car of cars">
+
+          <div class="car-card mat-elevation-z1 super-light-gray-background">
+            <a [href]="car.url" target="_blank" class="link-car-photo">
+              <div class="car-photo">
+                <img *ngIf="car.photo" [src]="car.photo" class="photo"/>
+                <img *ngIf="!car.photo" src="../../../assets/placeholder.png" class="photo"/>
+              </div>
+            </a>
+
+            <div class="car-info">
+              <a [href]="car.url" target="_blank">
+                <div class="car-title">
+                  <div class="header5-blue ">
+                    {{car.title | limitCharacters: [50]}}
+                  </div>
+                  <div class="header5-blue ">
+                    {{car.business ? 'Dealer' : 'Individual'}}
+                  </div>
+                </div>
+              </a>
+
+              <div class="car-value">
+                <div class="car-price light-gray-background">
+                  <div class="price-icon blue-background-600">
+                    <mat-icon fontIcon="local_offer"></mat-icon>
+                  </div>
+                  <div class="price-value header6-black">
+                    €{{car.price}}
+                  </div>
+                </div>
+                <button mat-raised-button class="price-button sale-button" [ngClass]="{ 'isPriced':isCarPricedForUser(car.car_id)}">
+                  <div style="display: flex; flex-direction: row;">
+                    <div class="button-icon" style="cursor: pointer!important" (click)="evaluate_car(car)" *ngIf="!isCarPricedForUser(car.car_id)">
+                      <mat-icon class="sale-icon" [class.shaking]="isShaking">local_offer</mat-icon>
+                      <span>(AI)</span>
+                    </div>
+                    <div class="button-icon" *ngIf="isCarPricedForUser(car.car_id)">
+                      <mat-icon class="sale-icon" [class.shaking]="isShaking">local_offer</mat-icon>
+                    </div>
+                    <div class="button-text body4-white" *ngIf="isCarPricedForUser(car.car_id)" [ngClass]="{
+                      'green-background':calculatePriceSale(getPriceRangeMin(car.car_id), getPriceRangeMax(car.car_id), car.price) < 0,
+                      'greenish-background':calculatePriceSale(getPriceRangeMin(car.car_id), getPriceRangeMax(car.car_id), car.price) >= 0
+                      && calculatePriceSale(getPriceRangeMin(car.car_id), getPriceRangeMax(car.car_id), car.price) <= 50,
+                      'yellow-background':calculatePriceSale(getPriceRangeMin(car.car_id), getPriceRangeMax(car.car_id), car.price) > 50
+                      && calculatePriceSale(getPriceRangeMin(car.car_id), getPriceRangeMax(car.car_id), car.price) <= 100,
+                      'red-background':calculatePriceSale(getPriceRangeMin(car.car_id), getPriceRangeMax(car.car_id), car.price) > 100
+                    }"
+                    >
+                      €{{getPriceRangeMin(car.car_id)}} - €{{getPriceRangeMax(car.car_id)}}
+                      <span class="additional-info" (click)="carInfo('Pricing', car.car_id)">?</span>
+                    </div>
+                  </div>
+                </button>
+
+                <button mat-raised-button class="sale-button history-button" *ngIf="car.vin && car.vin !== ''">
+                  <div style="display: flex; flex-direction: row;">
+                    <div class="button-icon" style="cursor: pointer!important" (click)="(carInfo('History', car.car_id))">
+                      <mat-icon class="history-icon">insert_chart</mat-icon>
+                      <span class="body4-white">Reports</span>
+                    </div>
+                  </div>
+                </button>
+
+              </div>
+              <div class="car-mileage-time">
+                <div class="car-tag">
+                  <div class="car-tag-icon">
+                    <mat-icon fontIcon="date_range"></mat-icon>
+                  </div>
+                  <div class="car-tag-text header6-black">
+                    {{car.year}}
+                  </div>
+                </div>
+                <div class="car-tag">
+                  <div class="car-tag-icon">
+                    <mat-icon fontIcon="drive_eta"></mat-icon>
+                  </div>
+                  <div class="car-tag-text header6-black">
+                    {{car.mileage}} km
+                  </div>
+                </div>
+                <div class="car-tag">
+                  <div class="car-tag-icon">
+                    <mat-icon fontIcon="schedule"></mat-icon>
+                  </div>
+                  <div class="car-tag-text header6-black">
+                    {{car.created_time | transformDate}}
+                  </div>
+                </div>
+                <div class="car-tag">
+                  <div class="car-tag-icon">
+                    <mat-icon fontIcon="location_on"></mat-icon>
+                  </div>
+                  <div class="car-tag-text header6-black">
+                    {{car.region}}
+                  </div>
+                </div>
+                <div class="car-tag">
+                  <div class="car-tag-icon">
+                    <mat-icon fontIcon="store"></mat-icon>
+                  </div>
+                  <div class="car-tag-text header6-black">
+                    {{car.city}}
+                  </div>
+                </div>
+              </div>
+              <div class="car-description body4-black">
+                <div class="desc">
+                  {{car.description | parseHtml | limitCharacters: [300] }}
+                </div>
+                <div class="site-source">
+                  <img [src]="
+                  car.site_source === 'RO-OLX' ? '../../../assets/olx.png' :
+                  car.site_source === 'RO-AUTOVIT' ? '../../../assets/autovit.png' :
+                  '../../../assets/placeholder.png'" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+      </div>
+
+      <div class="right-sidenav mat-elevation-z1" *ngIf="screen1360">
+        <ng-container *ngFor="let item of sidenavItems">
+
+          <mat-accordion *ngIf="item.type === 'expand'">
+            <mat-expansion-panel *ngIf="item.text === 'Saved Searches'" hideToggle #savedSearchesPanel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div class="header6-blue"><mat-icon fontIcon={{item.icon}}></mat-icon></div>
+                  <div class="sidenav-item-text" *ngIf="!screen720 || isSidenavOpen"><span class="animate-text header6-blue">{{item.text}}</span></div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              Saved Searches
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <div *ngIf="item.type === 'link'"  class="sidenav-item-title">
+            <div class="header6-blue"><mat-icon fontIcon={{item.icon}}></mat-icon></div>
+            <div class="sidenav-item-text" *ngIf="!screen720 || isSidenavOpen"><span class="animate-text header6-blue">{{item.text}}</span></div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div *ngIf="screenMobile">
+  HiMobile
+</div>
